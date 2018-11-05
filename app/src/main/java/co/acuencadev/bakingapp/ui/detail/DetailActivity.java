@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.databinding.ActivityDetailBinding;
+import co.acuencadev.bakingapp.ui.detail.ingredients.IngredientListFragment;
+import co.acuencadev.bakingapp.ui.detail.steps.StepListFragment;
 import co.acuencadev.bakingapp.ui.main.MainActivity;
 
 public class DetailActivity extends AppCompatActivity {
@@ -25,6 +27,9 @@ public class DetailActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         getRecipeIdFromIntent();
+
+        setUpViewPager();
+        setUpTabLayout();
     }
 
     @Override
@@ -45,5 +50,18 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         mRecipeId = intent.getIntExtra(MainActivity.EXTRA_RECIPE_ID, 0);
+    }
+
+    private void setUpViewPager() {
+        RecipesViewPagerAdapter adapter = new RecipesViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new IngredientListFragment(), "Ingredients");
+        adapter.addFragment(new StepListFragment(), "Steps");
+
+        mBinding.recipesDetailViewpager.setAdapter(adapter);
+    }
+
+    private void setUpTabLayout() {
+        mBinding.recipesDetailTabLayout.setupWithViewPager(mBinding.recipesDetailViewpager);
+
     }
 }
