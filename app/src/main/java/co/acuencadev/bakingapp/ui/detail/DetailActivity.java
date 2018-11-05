@@ -1,10 +1,12 @@
 package co.acuencadev.bakingapp.ui.detail;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import co.acuencadev.bakingapp.R;
+import co.acuencadev.bakingapp.databinding.ActivityDetailBinding;
 import co.acuencadev.bakingapp.ui.main.MainActivity;
 
 public class DetailActivity extends AppCompatActivity {
@@ -13,10 +15,14 @@ public class DetailActivity extends AppCompatActivity {
 
     private int mRecipeId;
 
+    private ActivityDetailBinding mBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         getRecipeIdFromIntent();
     }
