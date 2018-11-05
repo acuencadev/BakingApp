@@ -3,6 +3,7 @@ package co.acuencadev.bakingapp.ui.main.list;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,8 @@ import java.util.List;
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.data.models.Recipe;
 import co.acuencadev.bakingapp.databinding.FragmentRecipeListBinding;
+import co.acuencadev.bakingapp.ui.detail.DetailActivity;
+import co.acuencadev.bakingapp.ui.main.MainActivity;
 import co.acuencadev.bakingapp.utilities.InjectorUtils;
 
 /**
@@ -68,6 +71,10 @@ public class RecipeListFragment extends Fragment implements RecipesAdapter.Recip
 
     @Override
     public void onRecipeClicked(Recipe recipe) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
 
+        intent.putExtra(MainActivity.EXTRA_RECIPE_ID, recipe.getId());
+
+        startActivity(intent);
     }
 }

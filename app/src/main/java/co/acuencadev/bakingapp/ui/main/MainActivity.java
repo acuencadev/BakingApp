@@ -13,6 +13,8 @@ import co.acuencadev.bakingapp.ui.main.list.RecipeListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_RECIPE_ID = "co.acuencadev.bakingapp.params.RecipeId";
+
     ActivityMainBinding mBinding;
 
     @Override
