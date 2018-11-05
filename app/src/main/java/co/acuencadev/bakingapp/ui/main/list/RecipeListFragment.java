@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,10 @@ public class RecipeListFragment extends Fragment implements RecipesAdapter.Recip
         super.onActivityCreated(savedInstanceState);
 
         mAdapter = new RecipesAdapter(getActivity(), this);
+
+        mBinding.recipesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mBinding.recipesRecyclerView.setAdapter(mAdapter);
+        mBinding.recipesRecyclerView.setHasFixedSize(true);
 
         observeRecipeData();
     }
