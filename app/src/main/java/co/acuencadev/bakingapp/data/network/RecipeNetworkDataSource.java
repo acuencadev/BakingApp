@@ -57,13 +57,12 @@ public class RecipeNetworkDataSource {
         mAPI.getRecipes("baking.json").enqueue(new Callback<List<Recipe>>() {
             @Override
             public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
-                Log.v(RecipeNetworkDataSource.class.getSimpleName(), "Calling!");
                 data.setValue(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Recipe>> call, Throwable t) {
-                Log.v(RecipeNetworkDataSource.class.getSimpleName(), "Error!");
+
             }
         });
 
