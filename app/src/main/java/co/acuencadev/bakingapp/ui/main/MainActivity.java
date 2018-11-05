@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_RECIPE_ID = "co.acuencadev.bakingapp.params.RecipeId";
 
-    ActivityMainBinding mBinding;
+    private ActivityMainBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
