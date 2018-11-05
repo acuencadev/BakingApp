@@ -8,5 +8,11 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
+        <FrameLayout
+            android:id="@+id/list_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"/>
+
     </android.support.constraint.ConstraintLayout>
 </layout>
