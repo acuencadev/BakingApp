@@ -100,7 +100,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
         public void bind(final Recipe recipe, final RecipesAdapterListener listener) {
             nameTextView.setText(recipe.getName());
-            descriptionTextView.setText(recipe.getServings());
+            descriptionTextView.setText(Integer.toString(recipe.getServings()));
         }
     }
 
