@@ -2,6 +2,7 @@ package co.acuencadev.bakingapp.ui.main.list;
 
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.data.models.Recipe;
+import co.acuencadev.bakingapp.databinding.FragmentRecipeListBinding;
 import co.acuencadev.bakingapp.utilities.InjectorUtils;
 
 /**
@@ -20,6 +22,7 @@ public class RecipeListFragment extends Fragment implements RecipesAdapter.Recip
 
     private RecipeListViewModel mViewModel;
     private RecipesAdapter mAdapter;
+    private FragmentRecipeListBinding mBinding;
 
     public RecipeListFragment() {
         // Required empty public constructor
@@ -29,8 +32,9 @@ public class RecipeListFragment extends Fragment implements RecipesAdapter.Recip
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe_list, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_recipe_list,
+                container, false);
+        return mBinding.getRoot();
     }
 
     @Override
