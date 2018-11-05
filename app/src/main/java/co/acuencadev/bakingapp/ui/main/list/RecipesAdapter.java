@@ -100,7 +100,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
         public void bind(final Recipe recipe, final RecipesAdapterListener listener) {
             nameTextView.setText(recipe.getName());
-            descriptionTextView.setText(Integer.toString(recipe.getServings()));
+            descriptionTextView.setText(mContext.getResources().getQuantityString(
+                    R.plurals.servings, recipe.getServings(), recipe.getServings()));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
