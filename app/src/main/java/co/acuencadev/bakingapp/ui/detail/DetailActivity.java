@@ -54,8 +54,8 @@ public class DetailActivity extends AppCompatActivity {
 
     private void setUpViewPager() {
         RecipesViewPagerAdapter adapter = new RecipesViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new IngredientListFragment(), "Ingredients");
-        adapter.addFragment(new StepListFragment(), "Steps");
+        adapter.addFragment(new IngredientListFragment(), getString(R.string.tab_ingredients));
+        adapter.addFragment(new StepListFragment(), getString(R.string.tab_steps));
 
         mBinding.recipesDetailViewpager.setAdapter(adapter);
     }

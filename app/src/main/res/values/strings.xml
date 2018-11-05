@@ -8,4 +8,7 @@
 
     <string name="serving">%d Serving</string>
     <string name="servings">%d Servings</string>
+
+    <string name="tab_ingredients">Ingredients</string>
+    <string name="tab_steps">Steps</string>
 </resources>
