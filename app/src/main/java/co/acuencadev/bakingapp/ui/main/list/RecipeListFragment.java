@@ -1,6 +1,7 @@
 package co.acuencadev.bakingapp.ui.main.list;
 
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.data.models.Recipe;
@@ -55,6 +58,12 @@ public class RecipeListFragment extends Fragment implements RecipesAdapter.Recip
         RecipeListViewModelFactory factory = InjectorUtils.provideRecipeListViewModelFactory(
                 getActivity());
         mViewModel = ViewModelProviders.of(this, factory).get(RecipeListViewModel.class);
+        mViewModel.getRecipes().observe(this, new Observer<List<Recipe>>() {
+            @Override
+            public void onChanged(@Nullable List<Recipe> recipes) {
+                mAdapter.swapRecipes(recipes);
+            }
+        });
     }
 
     @Override
