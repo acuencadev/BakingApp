@@ -3,6 +3,7 @@ package co.acuencadev.bakingapp.data.network;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class RecipeNetworkDataSource {
     private final AppExecutors mExecutors;
     private final RecipeApi mAPI;
 
-    private final String API_URL = "https://api.themoviedb.org/3/";
+    private final String API_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/";
 
     public synchronized static RecipeNetworkDataSource getInstance(Context context,
                                                                    AppExecutors executors) {
@@ -53,15 +54,16 @@ public class RecipeNetworkDataSource {
     public LiveData<List<Recipe>> getRecipes() {
         final MutableLiveData<List<Recipe>> data = new MutableLiveData<>();
 
-        mAPI.getRecipes().enqueue(new Callback<List<Recipe>>() {
+        mAPI.getRecipes("baking.json").enqueue(new Callback<List<Recipe>>() {
             @Override
             public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                Log.v(RecipeNetworkDataSource.class.getSimpleName(), "Calling!");
                 data.setValue(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Recipe>> call, Throwable t) {
-
+                Log.v(RecipeNetworkDataSource.class.getSimpleName(), "Error!");
             }
         });
 
