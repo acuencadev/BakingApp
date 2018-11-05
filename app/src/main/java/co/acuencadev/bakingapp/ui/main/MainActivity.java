@@ -1,14 +1,15 @@
 package co.acuencadev.bakingapp.ui.main;
 
 import android.databinding.DataBindingUtil;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.databinding.ActivityMainBinding;
+import co.acuencadev.bakingapp.ui.main.list.RecipeListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        loadFragment();
     }
 
     @Override
@@ -38,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        RecipeListFragment fragment = new RecipeListFragment();
+
+        fragmentManager.beginTransaction()
+                .add(R.id.list_container, fragment)
+                .commit();
     }
 }
