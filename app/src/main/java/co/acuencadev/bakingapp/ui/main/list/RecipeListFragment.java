@@ -10,14 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import co.acuencadev.bakingapp.R;
+import co.acuencadev.bakingapp.data.models.Recipe;
 import co.acuencadev.bakingapp.utilities.InjectorUtils;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecipeListFragment extends Fragment {
+public class RecipeListFragment extends Fragment implements RecipesAdapter.RecipesAdapterListener {
 
     private RecipeListViewModel mViewModel;
+    private RecipesAdapter mAdapter;
 
     public RecipeListFragment() {
         // Required empty public constructor
@@ -35,6 +37,8 @@ public class RecipeListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        mAdapter = new RecipesAdapter(getActivity(), this);
+
         observeRecipeData();
     }
 
@@ -42,5 +46,10 @@ public class RecipeListFragment extends Fragment {
         RecipeListViewModelFactory factory = InjectorUtils.provideRecipeListViewModelFactory(
                 getActivity());
         mViewModel = ViewModelProviders.of(this, factory).get(RecipeListViewModel.class);
+    }
+
+    @Override
+    public void onRecipeClicked(Recipe recipe) {
+
     }
 }
