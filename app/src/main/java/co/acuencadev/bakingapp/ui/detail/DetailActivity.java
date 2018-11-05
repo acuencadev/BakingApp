@@ -62,6 +62,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void setUpTabLayout() {
         mBinding.recipesDetailTabLayout.setupWithViewPager(mBinding.recipesDetailViewpager);
-
+        mBinding.recipesDetailTabLayout.getTabAt(0).setIcon(R.drawable.ic_ingredients);
+        mBinding.recipesDetailTabLayout.getTabAt(1).setIcon(R.drawable.ic_steps);
     }
 }
