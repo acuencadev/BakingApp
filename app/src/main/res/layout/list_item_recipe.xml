@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/recipe_item_margin_top"
     android:layout_marginStart="@dimen/recipe_item_margin_start"
+    android:layout_marginLeft="@dimen/recipe_item_margin_start"
     android:layout_marginEnd="@dimen/recipe_item_margin_end"
+    android:layout_marginRight="@dimen/recipe_item_margin_end"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
