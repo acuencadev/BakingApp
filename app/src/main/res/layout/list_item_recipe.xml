@@ -2,9 +2,9 @@
 <LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginTop="@dimen/recipe_item_margin_top"
+    android:layout_marginStart="@dimen/recipe_item_margin_start"
+    android:layout_marginEnd="@dimen/recipe_item_margin_end"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -13,8 +13,8 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/recipe_cardView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        card_view:cardCornerRadius="4dp">
+        android:layout_height="@dimens/recipe_item_card_height"
+        card_view:cardCornerRadius="@dimens/recipe_item_card_corner_radius">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
