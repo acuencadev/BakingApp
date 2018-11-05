@@ -9,6 +9,8 @@ import co.acuencadev.bakingapp.ui.main.MainActivity;
 
 public class DetailActivity extends AppCompatActivity {
 
+    private static final String RECIPE_ID_STATE = "recipeId";
+
     private int mRecipeId;
 
     @Override
@@ -17,6 +19,20 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         getRecipeIdFromIntent();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(RECIPE_ID_STATE, mRecipeId);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        mRecipeId = savedInstanceState.getInt(RECIPE_ID_STATE);
     }
 
     private void getRecipeIdFromIntent() {
