@@ -88,6 +88,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
         TextView nameTextView;
         TextView descriptionTextView;
+        TextView stepsTextView;
+        TextView ingredientsTextView;
         ImageView thumbImageView;
 
         public RecipesViewHolder(View itemView) {
@@ -95,6 +97,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
             nameTextView = itemView.findViewById(R.id.recipe_name_textView);
             descriptionTextView = itemView.findViewById(R.id.recipe_description_textView);
+            stepsTextView = itemView.findViewById(R.id.recipe_steps_textView);
+            ingredientsTextView = itemView.findViewById(R.id.recipe_ingredients_textView);
             thumbImageView = itemView.findViewById(R.id.recipe_thumb_imageView);
         }
 
