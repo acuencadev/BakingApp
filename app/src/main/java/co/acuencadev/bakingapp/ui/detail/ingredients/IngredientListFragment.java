@@ -1,6 +1,7 @@
 package co.acuencadev.bakingapp.ui.detail.ingredients;
 
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -11,7 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import co.acuencadev.bakingapp.R;
+import co.acuencadev.bakingapp.data.models.Recipe;
 import co.acuencadev.bakingapp.databinding.FragmentIngredientListBinding;
 import co.acuencadev.bakingapp.utilities.InjectorUtils;
 
@@ -72,5 +76,14 @@ public class IngredientListFragment extends Fragment {
                 getActivity()
         );
         mViewModel = ViewModelProviders.of(this, factory).get(IngredientListViewModel.class);
+        mViewModel.getRecipes().observe(this, new Observer<List<Recipe>>() {
+            @Override
+            public void onChanged(@Nullable List<Recipe> recipes) {
+                //TODO: Refactor this as it is really inefficient.
+                Recipe recipe = recipes.get(mRecipeId);
+
+                mAdapter.swapIngredients(recipe.getIngredients());
+            }
+        });
     }
 }
