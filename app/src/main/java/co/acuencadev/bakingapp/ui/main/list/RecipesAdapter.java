@@ -1,6 +1,7 @@
 package co.acuencadev.bakingapp.ui.main.list;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
@@ -106,6 +107,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
             nameTextView.setText(recipe.getName());
             descriptionTextView.setText(mContext.getResources().getQuantityString(
                     R.plurals.servings, recipe.getServings(), recipe.getServings()));
+            stepsTextView.setText(mContext.getResources().getQuantityString(
+                    R.plurals.steps, recipe.getSteps().size(), recipe.getSteps().size()));
+            ingredientsTextView.setText(mContext.getResources().getQuantityString(
+                    R.plurals.ingredients, recipe.getIngredients().size(), recipe.getIngredients().size()
+            ));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
