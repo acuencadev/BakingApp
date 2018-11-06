@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import co.acuencadev.bakingapp.utilities.InjectorUtils;
 public class IngredientListFragment extends Fragment {
 
     private IngredientListViewModel mViewModel;
+    private IngredientsAdapter mAdapter;
     private FragmentIngredientListBinding mBinding;
 
     public IngredientListFragment() {
@@ -38,6 +40,12 @@ public class IngredientListFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        mAdapter = new IngredientsAdapter(getActivity());
+
+        mBinding.ingredientsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mBinding.ingredientsRecyclerView.setAdapter(mAdapter);
+        mBinding.ingredientsRecyclerView.setHasFixedSize(true);
 
         observeIngredientData();
     }
