@@ -5,6 +5,7 @@ import android.content.Context;
 import co.acuencadev.bakingapp.AppExecutors;
 import co.acuencadev.bakingapp.data.BakingAppRepository;
 import co.acuencadev.bakingapp.data.network.RecipeNetworkDataSource;
+import co.acuencadev.bakingapp.ui.detail.ingredients.IngredientListViewModelFactory;
 import co.acuencadev.bakingapp.ui.main.list.RecipeListViewModelFactory;
 
 public class InjectorUtils {
@@ -27,5 +28,11 @@ public class InjectorUtils {
         BakingAppRepository repository = provideRepository(context.getApplicationContext());
 
         return new RecipeListViewModelFactory(repository);
+    }
+
+    public static IngredientListViewModelFactory provideIngredientListViewModelFactory(Context context) {
+        BakingAppRepository repository = provideRepository(context.getApplicationContext());
+
+        return new IngredientListViewModelFactory(repository);
     }
 }
