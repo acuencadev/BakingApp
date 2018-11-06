@@ -13,9 +13,9 @@ public class RecipeListViewModel extends ViewModel {
     private final BakingAppRepository mRepository;
     private final LiveData<List<Recipe>> mRecipes;
 
-    public RecipeListViewModel(BakingAppRepository mRepository) {
-        this.mRepository = mRepository;
-        this.mRecipes = mRepository.getRecipes();
+    public RecipeListViewModel(BakingAppRepository repository) {
+        this.mRepository = repository;
+        this.mRecipes = this.mRepository.getRecipes();
     }
 
     public LiveData<List<Recipe>> getRecipes() {
