@@ -20,14 +20,31 @@ import co.acuencadev.bakingapp.utilities.InjectorUtils;
  */
 public class IngredientListFragment extends Fragment {
 
+    private static final String RECIPE_ID = "recipeId";
+
+    private int mRecipeId;
+
     private IngredientListViewModel mViewModel;
     private IngredientsAdapter mAdapter;
     private FragmentIngredientListBinding mBinding;
 
-    public IngredientListFragment() {
-        // Required empty public constructor
+    public static IngredientListFragment newInstance(int recipeId) {
+        IngredientListFragment fragment = new IngredientListFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(RECIPE_ID, recipeId);
+
+        fragment.setArguments(args);
+
+        return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mRecipeId = getArguments().getInt(RECIPE_ID);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
