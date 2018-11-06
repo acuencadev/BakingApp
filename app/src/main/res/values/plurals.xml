@@ -4,4 +4,14 @@
         <item quantity="one">@string/serving</item>
         <item quantity="other">@string/servings</item>
     </plurals>
+
+    <plurals name="ingredients">
+        <item quantity="one">@string/ingredient</item>
+        <item quantity="other">@plurals/ingredients</item>
+    </plurals>
+
+    <plurals name="steps">
+        <item quantity="one">@string/step</item>
+        <item quantity="other">@string/steps</item>
+    </plurals>
 </resources>
