@@ -18,13 +18,30 @@ import co.acuencadev.bakingapp.databinding.FragmentStepListBinding;
  */
 public class StepListFragment extends Fragment {
 
+    private static final String RECIPE_ID = "recipeId";
+
+    private int mRecipeId;
+
     private StepsAdapter mAdapter;
     private FragmentStepListBinding mBinding;
 
-    public StepListFragment() {
-        // Required empty public constructor
+    public static StepListFragment newInstance(int recipeId) {
+        StepListFragment fragment = new StepListFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(RECIPE_ID, recipeId);
+
+        fragment.setArguments(args);
+
+        return fragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mRecipeId = getArguments().getInt(RECIPE_ID);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
