@@ -9,6 +9,8 @@
     <string name="tab_ingredients">Ingredients</string>
     <string name="tab_steps">Steps</string>
 
+    <string name="separator">|</string>
+
     <!-- Dummy texts -->
     <string name="fragment_ingredients">Ingredients go here</string>
     <string name="fragment_steps">Steps go here</string>
