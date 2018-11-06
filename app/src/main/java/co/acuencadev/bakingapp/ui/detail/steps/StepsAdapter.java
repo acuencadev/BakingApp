@@ -105,7 +105,11 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepViewHold
             titleTextView.setText(step.getShortDescription());
             descriptionTextView.setText(step.getDescription());
 
-            //TODO: Display the thumbnail
+            if (step.getThumbnailURL().isEmpty()) {
+                thumbnailImageView.setVisibility(View.GONE);
+            } else {
+                //TODO: Display the thumbnail
+            }
         }
     }
 }
