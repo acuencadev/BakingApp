@@ -1,6 +1,7 @@
 package co.acuencadev.bakingapp.ui.detail.steps;
 
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import co.acuencadev.bakingapp.R;
 import co.acuencadev.bakingapp.databinding.FragmentStepListBinding;
+import co.acuencadev.bakingapp.utilities.InjectorUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,7 @@ public class StepListFragment extends Fragment {
 
     private int mRecipeId;
 
+    private StepListViewModel mViewModel;
     private StepsAdapter mAdapter;
     private FragmentStepListBinding mBinding;
 
@@ -60,5 +63,14 @@ public class StepListFragment extends Fragment {
         mBinding.stepsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBinding.stepsRecyclerView.setAdapter(mAdapter);
         mBinding.stepsRecyclerView.setHasFixedSize(true);
+
+        observeStepData();
+    }
+
+    private void observeStepData() {
+        StepListViewModelFactory factory = InjectorUtils.provideStepListViewModelFactory(
+                getActivity()
+        );
+        mViewModel = ViewModelProviders.of(this, factory).get(StepListViewModel.class);
     }
 }
