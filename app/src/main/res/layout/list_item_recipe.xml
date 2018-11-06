@@ -2,7 +2,7 @@
 <LinearLayout android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/recipe_item_margin_top"
+    android:layout_marginTop="@dimen/list_item_margin_top"
     android:layout_marginStart="@dimen/list_item_margin_start"
     android:layout_marginLeft="@dimen/list_item_margin_start"
     android:layout_marginEnd="@dimen/list_item_margin_end"
