@@ -7,7 +7,7 @@
 
     <plurals name="ingredients">
         <item quantity="one">@string/ingredient</item>
-        <item quantity="other">@plurals/ingredients</item>
+        <item quantity="other">@string/ingredients</item>
     </plurals>
 
     <plurals name="steps">
