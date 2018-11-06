@@ -6,6 +6,12 @@
     <string name="serving">%d Serving</string>
     <string name="servings">%d Servings</string>
 
+    <string name="ingredient">%d Ingredient</string>
+    <string name="ingredients">%d Ingredients</string>
+
+    <string name="step">%d Step</string>
+    <string name="steps">%d Steps</string>
+
     <string name="tab_ingredients">Ingredients</string>
     <string name="tab_steps">Steps</string>
 
