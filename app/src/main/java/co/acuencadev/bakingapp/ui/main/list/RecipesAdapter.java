@@ -104,13 +104,15 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
         }
 
         public void bind(final Recipe recipe, final RecipesAdapterListener listener) {
+            Resources resources = mContext.getResources();
+
             nameTextView.setText(recipe.getName());
-            descriptionTextView.setText(mContext.getResources().getQuantityString(
-                    R.plurals.servings, recipe.getServings(), recipe.getServings()));
-            stepsTextView.setText(mContext.getResources().getQuantityString(
-                    R.plurals.steps, recipe.getSteps().size(), recipe.getSteps().size()));
-            ingredientsTextView.setText(mContext.getResources().getQuantityString(
-                    R.plurals.ingredients, recipe.getIngredients().size(), recipe.getIngredients().size()
+            descriptionTextView.setText(resources.getQuantityString(R.plurals.servings,
+                    recipe.getServings(), recipe.getServings()));
+            stepsTextView.setText(resources.getQuantityString(R.plurals.steps,
+                    recipe.getSteps().size(), recipe.getSteps().size()));
+            ingredientsTextView.setText(resources.getQuantityString(R.plurals.ingredients,
+                    recipe.getIngredients().size(), recipe.getIngredients().size()
             ));
 
             itemView.setOnClickListener(new View.OnClickListener() {
